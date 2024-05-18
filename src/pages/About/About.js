@@ -13,6 +13,10 @@ const About = () => {
         <img src={GitHub} alt="Github" />
     <a href="https://github.com/bi-nho" target="_blank" rel="noopener noreferrer">
         <img src={GitHub} alt="Github" />
+    <a href="https://github.com/ximendesadrielle" target="_blank" rel="noopener noreferrer">
+        <img src={GitHub} alt="Github" />
+    <a href="https://github.com/PedroMiguel-Cavalcanti" target="_blank" rel="noopener noreferrer">
+        <img src={GitHub} alt="Github" />
       </a>
     </div>
   );
