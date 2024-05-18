@@ -7,7 +7,11 @@ const About = () => {
     <div>
       <AuthNavbar />
       <p>Sobre Nós</p>
-      <a href="https://github.com/RuanAzevedoLira02/ATV02-REACT" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/RuanAzevedoLira02" target="_blank" rel="noopener noreferrer">
+        <img src={GitHub} alt="Github" />
+    <a href="https://github.com/Andrey-Ranielly" target="_blank" rel="noopener noreferrer">
+        <img src={GitHub} alt="Github" />
+    <a href="https://github.com/bi-nho" target="_blank" rel="noopener noreferrer">
         <img src={GitHub} alt="Github" />
       </a>
     </div>
