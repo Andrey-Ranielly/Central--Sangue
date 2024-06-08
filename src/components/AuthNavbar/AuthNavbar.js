@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './AuthNavbar.css'; // Supondo que você tenha um arquivo de estilo CSS separado
+import './AuthNavbar.css';
 import Landing from '../img/LogoTN.png';
 import ODS from '../img/ODS.png';
 import About from '../img/About.png';
