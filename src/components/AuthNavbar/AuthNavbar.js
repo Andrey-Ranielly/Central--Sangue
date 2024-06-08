@@ -1,27 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './AuthNavbar.css'; // Supondo que você tenha um arquivo de estilo CSS separado
-import Landing from '../img/LogoTN.png';
-import ODS from '../img/ODS.png';
-import About from '../img/About.png';
+.buttons-container {
+  position: absolute;
+  top: 20px; /* Ajuste conforme necessário */
+  right: 20px; /* Ajuste conforme necessário */
+}
 
-const AuthNavbar = () => {
-  const imgStyle = {  
-    margin: '10px',
-    height:'50px'
-  }; 
+.buttonLogin,
+.buttonRegister {
+  padding: 17px 40px;
+  border-radius: 50px;
+  border: 0;
+  background-color: white;
+  box-shadow: #0000000d 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  margin-right: 10px; /* Ajuste o espaçamento entre os botões conforme necessário */
+}
 
-  return (
-    <nav className="auth-navbar" style={{ backgroundColor: '#dc143c', color: '#333' }}>
-      <Link to="/" className="navbar-link"><img src={Landing} alt="LandingPage" style={imgStyle}/></Link>
-      <Link to="/about" className="navbar-link"><img src={About} alt="About" style={imgStyle}/></Link>
-      <Link to="/ods3" className="navbar-link"><img src={ODS} alt="ODS" style={imgStyle}/></Link>
-      <div class="buttons-container">
-  <Link to="/login"><button class="buttonLogin">Login</button></Link>
-  <Link to="/register"><button class="buttonRegister">Register</button></Link>
-</div>
-    </nav>
-  );
-};
+.buttonLogin:hover,
+.buttonRegister:hover {
+  letter-spacing: 3px;
+  background-color: #ffff;
+  color: #000000;
+  box-shadow: #ffff 0px 7px 29px 0px;
+}
 
-export default AuthNavbar;
+.buttonLogin:active,
+.buttonRegister:active {
+  letter-spacing: 3px;
+  background-color: #dc143c;
+  color: #fff;
+  box-shadow: #fff 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
