@@ -14,6 +14,7 @@ const lightTheme = {
 const darkTheme = {
 
     body:"#111",
+    backgroundColor: "#111",
     text:"#fafafa",
     toggleBorder: "#6b8096"
 }
