@@ -1,54 +1,138 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import AuthNavbar from '../../components/AuthNavbar/AuthNavbar';
-import './Register.css';
+import React, { useEffect, useRef, useState } from 'react';
+import Navbar from '../../components/Navbar/Navbar';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet-control-geocoder/dist/Control.Geocoder.css';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
+import 'leaflet-control-geocoder';
+import 'leaflet-routing-machine';
+import './Schedule.css'
 
-function Register() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [cpf, setCpf] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+const Schedule = () => {
+  const [currentPos, setCurrentPos] = useState(null);
+  const [destination, setDestination] = useState('');
+  const [geocodeResults, setGeocodeResults] = useState([]);
+  const mapRef = useRef(null);
+  const mapContainerRef = useRef(null);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Verificar se todos os campos foram preenchidos
-    if (email && cpf && password && confirmPassword && password === confirmPassword) {
-      // Lógica de registro aqui
-      
-      navigate('/home');
+  useEffect(() => {
+    if (!mapRef.current) {
+      navigator.geolocation.watchPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setCurrentPos({ latitude, longitude });
+
+          if (!mapRef.current) {
+            const map = L.map(mapContainerRef.current).setView([latitude, longitude], 13);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }).addTo(map);
+
+            mapRef.current = map;
+          }
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
+  }, [currentPos]);
+
+  const markerRef = useRef(null);
+  const routingControlRef = useRef(null);
+
+  const handleMyLocationClick = () => {
+    if (currentPos && mapRef.current) {
+      if (markerRef.current) {
+        mapRef.current.removeLayer(markerRef.current);
+      }
+      const marker = L.marker([currentPos.latitude, currentPos.longitude], { icon: customIcon }).addTo(mapRef.current);
+      mapRef.current.setView([currentPos.latitude, currentPos.longitude], 13);
+      marker.bindPopup('Sua localização atual').openPopup();
+      markerRef.current = marker;
     } else {
-      alert('Por favor, preencha todos os campos corretamente.');
+      console.log("Localização atual não disponível.");
     }
   };
 
+  const handleDestinationChange = (event) => {
+    setDestination(event.target.value);
+  };
+
+  const handleGeocode = () => {
+    const geocoder = L.Control.Geocoder.nominatim();
+    geocoder.geocode(destination, (results) => {
+      setGeocodeResults(results);
+    });
+  };
+
+  const handleSelectAddress = (result) => {
+    const latlng = result.center;
+    if (currentPos && mapRef.current) {
+      if (markerRef.current) {
+        mapRef.current.removeLayer(markerRef.current);
+      }
+      const marker = L.marker(latlng, { icon: customIcon }).addTo(mapRef.current);
+      marker.bindPopup(result.name).openPopup();
+      markerRef.current = marker;
+
+      if (routingControlRef.current) {
+        mapRef.current.removeControl(routingControlRef.current);
+      }
+      const routingControl = L.Routing.control({
+        waypoints: [
+          L.latLng(currentPos.latitude, currentPos.longitude),
+          latlng
+        ],
+        routeWhileDragging: true
+      }).addTo(mapRef.current);
+      routingControlRef.current = routingControl;
+      setGeocodeResults([]);
+    }
+  };
+
+  const customIcon = L.icon({
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png', // URL do ícone padrão da Leaflet
+    iconSize: [25, 41], // Tamanho do ícone
+    iconAnchor: [12, 41], // Ponto de ancoragem do ícone (centro inferior)
+    popupAnchor: [0, -41], // Ponto de ancoragem do popup em relação ao ícone
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png', // URL da sombra do ícone
+    shadowSize: [41, 41], // Tamanho da sombra
+    shadowAnchor: [12, 41] // Ponto de ancoragem da sombra
+  });
+
+
+
+
+  
   return (
     <div>
-      <AuthNavbar /> {/* Movendo o AuthNavbar para o topo */}
-      <div className="login-container"> {/* Adicionando a classe do arquivo CSS */}
-        <form onSubmit={handleSubmit} className="login-form"> {/* Adicionando a classe do arquivo CSS */}
-          <div>
-            <label className='register-label'>Cadastro</label><br></br> <br></br>
-            <label className="email-label">Email:</label> {/* Adicionando a classe do arquivo CSS */}
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="email-input" /> {/* Adicionando a classe do arquivo CSS */}
-          </div>
-          <div>
-            <label className="cpf-label">CPF:</label> {/* Adicionando uma nova classe do arquivo CSS */}
-            <input type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} className="cpf-input" /> {/* Adicionando uma nova classe do arquivo CSS */}
-          </div>
-          <div>
-            <label className="password-label">Senha:</label> {/* Adicionando a classe do arquivo CSS */}
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="password-input" /> {/* Adicionando a classe do arquivo CSS */}
-          </div>
-          <div>
-            <label className="confirm-password-label">Confirmar Senha:</label> {/* Adicionando uma nova classe do arquivo CSS */}
-            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="confirm-password-input" /> {/* Adicionando uma nova classe do arquivo CSS */}
-          </div>
-          <button type="submit" disabled={!email || !cpf || !password || !confirmPassword || password !== confirmPassword} className="submit-button">Cadastrar</button> {/* Adicionando a classe do arquivo CSS */}
-        </form>
+      <Navbar />
+      <div style={{ marginBottom: '20px' }}>
+        <button className="my-location-button" onClick={handleMyLocationClick}>Minha localização atual</button>
+        <button className="geocode-button" onClick={handleGeocode}>Buscar</button>
+        <input
+  type="text"
+  value={destination}
+  onChange={handleDestinationChange}
+  placeholder="Digite o destino"
+  className="input-destination" // Adicione esta linha
+/>
       </div>
+      <div id="map" ref={mapContainerRef} style={{ height: '700px', width: '100%'}}>
+
+
+        
+      </div>
+      <ul>
+        {geocodeResults.map((result, index) => (
+          <li key={index} onClick={() => handleSelectAddress(result)}>
+            {result.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default Register;
+export default Schedule;
