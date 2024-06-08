@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Inter', sans-serif; /* Define a fonte padrão para todos os elementos */
+    font-family: 'Inter', sans-serif;
 }
 
 .navbar {
@@ -18,13 +18,13 @@ body {
     background-repeat: no-repeat;
     height: 100%;
     margin: 0;
-    position: relative; /* Adicionado para posicionamento absoluto da imagem */
+    position: relative;
 }
 
 .image-description-container {
     position: absolute;
     top: 150px;
-    left: 300px; /* Define a distância da imagem e descrição em relação ao lado esquerdo da página */
+    left: 300px;
 }
 
 .image-container {
@@ -34,22 +34,21 @@ body {
 }
 
 .example-image {
-    display: block; /* Faz a imagem ser um elemento de bloco */
-    width: 250px; /* Define a largura da imagem */
-    height: 250px; /* Define a altura da imagem */
-    border-radius: 50%; /* Torna a imagem redonda */
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
 }
 
 .description {
-    margin-top: 20px; /* Espaço entre a imagem e a descrição */
+    margin-top: 20px;
     padding: 50px;
-   
 }
 
 .content {
-    margin-top: 6em; /* Adiciona espaço entre a navbar e o conteúdo */
-    width: 50%; /* Define a largura da div de conteúdo */
-    float: right; /* Faz com que a div flutue para a direita */
+    margin-top: 6em;
+    width: 50%;
+    float: right;
 }
 
 h3 {
@@ -66,12 +65,12 @@ h3 {
 
 .paragraphs-container {
     font-size: 0.9em;
-    border: 2px solid #ffffff; /* Adiciona uma borda sólida de 2 pixels ao redor do contêiner */
-    padding: 10px; /* Adiciona um padding ao redor do contêiner */
-    margin-bottom: 20px; /* Adiciona um espaçamento inferior entre os contêineres */
+    border: 2px solid #ffffff;
+    padding: 10px;
+    margin-bottom: 20px;
     width: 400px;
     height: 100px;
     background-color: #ffffff;
     border-radius: 6px;
-    box-shadow: 1px 5px 3px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra de 5 pixels de deslocamento horizontal, 5 pixels de deslocamento vertical, 10 pixels de desfoque e 0.1 de opacidade */
+    box-shadow: 1px 5px 3px rgba(0, 0, 0, 0.1); 
 }
