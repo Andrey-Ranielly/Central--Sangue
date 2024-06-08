@@ -3,21 +3,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 90vh; /* Ajuste a altura da página */
+    min-height: 90vh;
     text-align: center;
   }
   
   .auth-navbar-container {
-    margin-bottom: 20px; /* Espaçamento entre a AuthNavbar e o conteúdo */
+    margin-bottom: 20px;
   }
   
   .BemVindo {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 70px; /* Ajuste o tamanho do texto */
-    animation: digitar 5s steps(40) infinite; /* Ajuste a duração da animação */
+    font-size: 70px;
+    animation: digitar 5s steps(40) infinite;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid; /* Adiciona o efeito de digitação */
+    border-right: 2px solid;
   }
   
   @keyframes digitar {
@@ -31,6 +31,6 @@
   
   .Texto1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 30px; /* Ajuste o tamanho do texto */
+    font-size: 30px;
   }
   
