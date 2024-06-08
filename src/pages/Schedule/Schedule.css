@@ -1,66 +1,49 @@
-/* Register.css */
+.my-location-button,
+.geocode-button {
+  margin-top: 20px;
+  margin-right: 30px; 
+}
 
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .login-form {
-    width: 20%;
-    height: 450px; /* Aumentando a altura do formulário */
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Adicionando sombra ao formulário */
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Alterando a fonte */
-  }
-  
-  .register-label {
-    font-size: 200%; /* Aumentando o tamanho da palavra "Login" */
-    margin-bottom: 20px;
-  }
-  
-  .email-label,
-  .password-label,
-  .cpf-label,
-  .confirm-password-label { /* Adicionando a classe para o rótulo CPF e Confirmar Senha */
-    display: block;
-    margin-bottom: 10px; /* Aumentando a distância entre os rótulos */
-  }
-  
-  .email-input,
-  .password-input,
-  .cpf-input,
-  .confirm-password-input { /* Adicionando a classe para o campo de entrada CPF e Confirmar Senha */
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 20px; /* Aumentando a distância entre os campos de entrada */
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #dc143c; /* Mudando a cor do botão para vermelho */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px; /* Aumentando a distância entre o botão e os campos de entrada */
-  }
-  
-  .submit-button:hover {
-    background-color: #8b0000; /* Mudando a cor de hover para uma tonalidade mais escura de vermelho */
-  }
-  
-  .submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+.my-location-button,
+.geocode-button {
+  padding: 17px 40px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #dc143c;
+  color: #ffff;
+  box-shadow: #ffffff0d 0 0 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+  margin-right: 15px;
+}
+
+.my-location-button:hover,
+.geocode-button:hover {
+  letter-spacing: 3px;
+  box-shadow: #ffff 0px 7px 29px 0px;
+}
+
+.my-location-button:active,
+.geocode-button:active {
+  letter-spacing: 3px;
+  box-shadow: #fff 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.input-destination {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 30px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.input-destination:focus {
+  outline: none;
+  border-color: #dc143c;
+  box-shadow: 0 0 5px #dc143c;
+}
