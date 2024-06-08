@@ -1,0 +1,36 @@
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh; /* Ajuste a altura da página */
+    text-align: center;
+  }
+  
+  .auth-navbar-container {
+    margin-bottom: 20px; /* Espaçamento entre a AuthNavbar e o conteúdo */
+  }
+  
+  .BemVindo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 70px; /* Ajuste o tamanho do texto */
+    animation: digitar 5s steps(40) infinite; /* Ajuste a duração da animação */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid; /* Adiciona o efeito de digitação */
+  }
+  
+  @keyframes digitar {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  .Texto1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px; /* Ajuste o tamanho do texto */
+  }
+  

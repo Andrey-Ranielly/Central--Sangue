@@ -1,0 +1,28 @@
+/* About.css */
+
+.container {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: justify;
+    margin: 40px 20px;
+  }
+  
+  .container h2 {
+    font-size: 30px; /* Aumentando mais o tamanho do título */
+    margin-bottom: 20px;
+    text-align: center; /* Centralizando o título */
+  }
+  
+  .container p {
+    font-size: 20px; /* Aumentando mais o tamanho do texto */
+    line-height: 1.8;
+  }
+  
+  .container ol {
+    text-align: left;
+    margin-left: 40px;
+  }
+  
+  .container ol li {
+    margin-bottom: 10px;
+  }
+  

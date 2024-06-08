@@ -1,0 +1,28 @@
+/*Navbar.css*/
+
+.ModoE {
+    position: absolute;
+    top: 10px; /* Ajustado para mover um pouco para cima */
+    right: 20px;
+    padding: 10px 20px; /* Ajustado para diminuir o tamanho */
+    border-radius: 25px; /* Ajustado para metade do tamanho original */
+    border: 0;
+    background-color: white; /* Cor de fundo alterada para branco */
+    box-shadow: #0000000d 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 13px; /* Ajustado para um tamanho menor */
+    transition: all 0.5s ease;
+}
+
+.ModoE:hover {
+    background-color: #f0f0f0; /* Cor de fundo alterada no hover */
+}
+
+.ModoE.darkMode {
+    background-color: #dc143c;
+    color: #fff;
+    box-shadow: #fff 0px 0px 0px 0px;
+    transform: translateY(5px); /* Ajustado para 5px para compensar a mudança de tamanho */
+    transition: 100ms;
+}

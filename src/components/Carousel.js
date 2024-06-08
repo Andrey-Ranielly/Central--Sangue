@@ -7,7 +7,7 @@ import img03 from './img/img03.jpg';
 
 const ImageCarousel = () => {
   return (
-    <Carousel autoPlay infiniteLoop showThumbs={false}>
+    <Carousel autoPlay infiniteLoop showThumbs={false} >
       <div>
         <img className = "imgcarousel" src={img01} alt="01"/>
       </div>
@@ -22,3 +22,4 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
